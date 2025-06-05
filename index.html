@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selamat Ulang Tahun 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffb6c1, #ffc0cb);
+      font-family: 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      border: 3px solid #ffc0cb;
+    }
+
+    .container {
+      text-align: center;
+      padding-top: 15vh;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      animation: slideIn 2s ease-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #fff;
+      margin-top: 20px;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow-x: hidden;
+      overflow-y: visible;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff69b4;
+      font-size: 2rem;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-100px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    
+    @media screen and (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+      img {
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Selamat Ulang Tahun 💕</h1>
+    <p>Selamat ulang tahun ya madam cantik , semoga kamu suka ini ya 🫰!</p>
+    <p>💕Kamu kalau lagi ada masalah jangan sungkan curhat sama aku ya ,aku pasti dengerin kok💕</p>
+    <p>Pencet di sebarang layar untuk memulai lagu</p>
+    <img src="foto nissa.jpg">
+
+    <audio id="lagu" muted autoplay loop>
+      <source src="sound nissa.mp3" type="audio/mpeg">
+
+      Browser Anda tidak mendukung audio.
+    </audio>
+  </div>
+
+  <div class="hearts"></div>
+
+  <script>
+    for (let i = 0; i < 30; i++) {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+      heart.style.fontSize = (1 + Math.random() * 2) + "rem";
+      heart.innerHTML = "❤️";
+      document.querySelector('.hearts').appendChild(heart);
+    }
+
+    const audio = document.getElementById("lagu");
+    window.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.muted = false;
+        audio.play().catch((e) => console.log("Autoplay gagal:", e));
+      } else {
+        audio.muted = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
